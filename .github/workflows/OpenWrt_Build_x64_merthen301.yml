@@ -49,18 +49,18 @@ on:
  #         - 'Pushplus'
       SSH_ACTION:
         description: 'SSH远程配置固件'
-        required: false
+        required: true
         default: 'false'
         type: boolean
       UPLOAD_FIRMWARE:
         description: '上传固件到 Github Artifacts'
-        required: false
-        default: 'true'
+        required: true
+        default: 'false'
         type: boolean
       UPLOAD_RELEASE:
         description: '发布固件到 Github Releases'
-        required: true
-        default: 'false'
+        required: false
+        default: 'true'
         type: boolean
       CACHEWRTBUILD_SWITCH:
         description: '缓存加速编译'
@@ -89,7 +89,7 @@ env:
   GIT_REPOSITORY: ${{github.repository}}
   RUN_NUMBER: ${{github.run_number}}
   RUN_WORKFLOW: ${{github.workflow}}
-  # REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
+   REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
   # PUSH_PLUS_TOKEN: ${{ secrets.PUSH_PLUS_TOKEN }}
   # TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
   # TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -111,14 +111,14 @@ jobs:
         # 请勿对 target: [Lede] 做任何修改
         
     steps:
-    # - name: 密匙检测（密匙为空则退出）
-    #  run: |
-    #    cd ${GITHUB_WORKSPACE}
-    #    if [[ -z "${{ secrets.REPO_TOKEN }}" ]]; then
-    #      echo "您没有设置仓库密匙，请按教程设置好密匙再来"
-    #      echo "REPO_TOKEN密匙制作教程：https://git.io/jm.md"
-    #      exit 1
-    #    fi
+     - name: 密匙检测（密匙为空则退出）
+      run: |
+        cd ${GITHUB_WORKSPACE}
+        if [[ -z "${{ secrets.REPO_TOKEN }}" ]]; then
+          echo "您没有设置仓库密匙，请按教程设置好密匙再来"
+          echo "REPO_TOKEN密匙制作教程：https://git.io/jm.md"
+          exit 1
+        fi
     
     - name: 准备结束
       uses: actions/checkout@v4
