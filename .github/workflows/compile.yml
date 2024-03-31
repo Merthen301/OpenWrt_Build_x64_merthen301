@@ -111,7 +111,7 @@ jobs:
     #    cd openwrt
     #    source ${BUILD_PATH}/common.sh && Diy_menu2
  
-     - name: 更新插件源
+    - name: 更新插件源
       run: |
         cd openwrt
         source ${BUILD_PATH}/common.sh && Diy_menu3
@@ -189,7 +189,7 @@ jobs:
         name: OpenWrt_x64_merthen301-${{ env.Firmware_Date }}
         path: ${{ env.FIRMWARE_PATH }}
     
-    - #name: 发布固件
+    #- name: 发布固件
       #if: steps.compile.outcome == 'success' && env.UPLOAD_RELEASE == 'true' && env.ING_FIRMWAR == 'true' && env.REPO_TOKEN
       #uses: ncipollo/release-action@v1
       #with:
