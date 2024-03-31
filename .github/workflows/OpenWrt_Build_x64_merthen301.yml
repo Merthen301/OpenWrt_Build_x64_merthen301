@@ -89,8 +89,8 @@ env:
   GIT_REPOSITORY: ${{github.repository}}
   RUN_NUMBER: ${{github.run_number}}
   RUN_WORKFLOW: ${{github.workflow}}
-  REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
-  PUSH_PLUS_TOKEN: ${{ secrets.PUSH_PLUS_TOKEN }}
+  # REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
+  # PUSH_PLUS_TOKEN: ${{ secrets.PUSH_PLUS_TOKEN }}
   # TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
   # TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
   TZ: Asia/Shanghai
@@ -111,14 +111,14 @@ jobs:
         # 请勿对 target: [Lede] 做任何修改
         
     steps:
-    - name: 密匙检测（密匙为空则退出）
-      run: |
-        cd ${GITHUB_WORKSPACE}
-        if [[ -z "${{ secrets.REPO_TOKEN }}" ]]; then
-          echo "您没有设置仓库密匙，请按教程设置好密匙再来"
-          echo "REPO_TOKEN密匙制作教程：https://git.io/jm.md"
-          exit 1
-        fi
+    # - name: 密匙检测（密匙为空则退出）
+    #  run: |
+    #    cd ${GITHUB_WORKSPACE}
+    #    if [[ -z "${{ secrets.REPO_TOKEN }}" ]]; then
+    #      echo "您没有设置仓库密匙，请按教程设置好密匙再来"
+    #      echo "REPO_TOKEN密匙制作教程：https://git.io/jm.md"
+    #      exit 1
+    #    fi
     
     - name: 准备结束
       uses: actions/checkout@v4
@@ -159,12 +159,12 @@ jobs:
         cp -Rf ${GITHUB_WORKSPACE}/build ${GITHUB_WORKSPACE}/openwrt/build
         chmod -R +x ${GITHUB_WORKSPACE}/openwrt/build
     
-    - name: 公 告
-      if: env.REPO_TOKEN
-      run: |
-        cd ${GITHUB_WORKSPACE}
-        cd openwrt
-        source ${BUILD_PATH}/common.sh && Diy_menu2
+    # - name: 公 告
+    #  if: env.REPO_TOKEN
+    #  run: |
+    #    cd ${GITHUB_WORKSPACE}
+    #    cd openwrt
+    #    source ${BUILD_PATH}/common.sh && Diy_menu2
  
     - name: 更新插件源
       if: env.REPO_TOKEN
