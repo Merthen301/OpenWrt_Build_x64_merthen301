@@ -111,7 +111,7 @@ jobs:
         # 请勿对 target: [Lede] 做任何修改
         
     steps:
-     - name: 密匙检测（密匙为空则退出）
+    - name: 密匙检测（密匙为空则退出）
       run: |
         cd ${GITHUB_WORKSPACE}
         if [[ -z "${{ secrets.REPO_TOKEN }}" ]]; then
