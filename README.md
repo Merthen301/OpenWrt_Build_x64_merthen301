@@ -6,6 +6,6 @@
 </a>
 
 </br>
-<a href="https://github.com/Merthen301/OpenWrt_Build_x64_merthen301/blob/main/.github/workflows/compile.yml">
-    <img src="https://github.com/Merthen301/OpenWrt_Build_x64_merthen301/blob/main/.github/workflows/compile.yml/badge.svg?style=flat" />
+<a href="https://github.com/Merthen301/OpenWrt_Build_x64_merthen301/actions/workflows/compile.yml">
+    <img src="https://github.com/Merthen301/OpenWrt_Build_x64_merthen301/actions/workflows/compile.yml/badge.svg?style=flat" />
 </a>
