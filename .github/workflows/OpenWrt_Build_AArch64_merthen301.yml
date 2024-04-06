@@ -7,7 +7,7 @@
 #
 # REPO_TOKEN密匙制作教程：https://git.io/jm.md
 #
-#
+##
 
 name: OpenWrt_Build_AArch64_merthen301
 on:
