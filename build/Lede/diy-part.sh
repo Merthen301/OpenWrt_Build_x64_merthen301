@@ -22,8 +22,8 @@ export Netmask_netm="255.255.255.0"          # IPv4 子网掩码（默认：255.
 export Op_name="OpenWrt-FORBRO"               # 修改主机名称为OpenWrt-123(填0为不作修改)
 
 # 内核和系统分区大小(不是每个机型都可用)
-export Kernel_partition_size="32"            # 内核分区大小,每个机型默认值不一样 (填写您想要的数值,默认一般16,数值以MB计算，填0为不作修改),如果你不懂就填0
-export Rootfs_partition_size="960"           # 系统分区大小,每个机型默认值不一样 (填写您想要的数值,默认一般300左右,数值以MB计算，填0为不作修改),如果你不懂就填0
+export Kernel_partition_size="0"            # 内核分区大小,每个机型默认值不一样 (填写您想要的数值,默认一般16,数值以MB计算，填0为不作修改),如果你不懂就填0
+export Rootfs_partition_size="0"           # 系统分区大小,每个机型默认值不一样 (填写您想要的数值,默认一般300左右,数值以MB计算，填0为不作修改),如果你不懂就填0
 
 # 默认主题设置
 export Mandatory_theme="argon"               # 将bootstrap替换您需要的主题为必选主题(可自行更改您要的,源码要带此主题就行,填写名称也要写对) (填写主题名称,填0为不作修改)
@@ -49,7 +49,7 @@ export OpenClash_branch="0"                  # OpenClash的源码分别有【mas
 export OpenClash_Core="2"                    # 增加OpenClash时,把核心下载好,(填1为下载【dev单核】,填2为下载【dev/meta/premium三核】,填0为不需要核心)
 
 # 个性签名,默认增加年月日[$(TZ=UTC-8 date "+%Y.%m.%d")]
-export Customized_Information="OpenWrt_x64_旁路由版 by YL build $(TZ=UTC-8 date "+%Y.%m.%d")"  # 个性签名,你想写啥就写啥，(填0为不作修改)
+export Customized_Information="OpenWrt_AArch64_旁路由版 by YL build $(TZ=UTC-8 date "+%Y.%m.%d")"  # 个性签名,你想写啥就写啥，(填0为不作修改)
 
 # 更换固件内核
 #export Replace_Kernel="6.1"                  # 更换内核版本,在对应源码的[target/linux/架构]查看patches-x.x,看看x.x有啥就有啥内核了(填入内核x.x版本号,填0为不作修改)
@@ -105,19 +105,19 @@ cat >"$CLEAR_PATH" <<-EOF
 packages
 config.buildinfo
 feeds.buildinfo
-openwrt-x86-64-generic-kernel.bin
-openwrt-x86-64-generic.manifest
-openwrt-x86-64-generic-squashfs-rootfs.img.gz
+openwrt-AArch64-generic-kernel.bin
+openwrt-AArch64-generic.manifest
+openwrt-AArch64-generic-squashfs-rootfs.img.gz
 sha256sums
 version.buildinfo
 ipk.tar.gz
 profiles.json
-openwrt-x86-64-generic-ext4-combined.img.gz
-openwrt-x86-64-generic-ext4-combined-efi.img.gz
-openwrt-x86-64-generic-ext4-rootfs.img.gz
-openwrt-x86-64-generic-rootfs.tar.gz
-openwrt-x86-64-generic-squashfs-combined.vmdk
-openwrt-x86-64-generic-squashfs-combined-efi.vmdk
+openwrt-AArch64-generic-ext4-combined.img.gz
+openwrt-AArch64-generic-ext4-combined-efi.img.gz
+openwrt-AArch64-generic-ext4-rootfs.img.gz
+openwrt-AArch64-generic-rootfs.tar.gz
+openwrt-AArch64-generic-squashfs-combined.vmdk
+openwrt-AArch64-generic-squashfs-combined-efi.vmdk
 EOF
 
 # 在线更新时，删除不想保留固件的某个文件，在EOF跟EOF之间加入删除代码，记住这里对应的是固件的文件路径，比如： rm -rf /etc/config/luci
