@@ -1,4 +1,4 @@
-## `OpenWrt-x64_merthen301 【主路由版】内核版本6.6 云编译`
+## `OpenWrt-x64_merthen301 【主路由版】内核版本5.15 云编译`
 编译状态：
 
 <a href="https://github.com/Merthen301/OpenWrt_Build_x64_merthen301/actions/workflows/OpenWrt_Build_x64_merthen301.yml">
