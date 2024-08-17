@@ -1,7 +1,6 @@
 CONFIG_TARGET_x86=y
 CONFIG_TARGET_x86_64=y
 CONFIG_TARGET_x86_64_DEVICE_generic=y
-CONFIG_DOCKER_OPTIONAL_FEATURES=y
 # CONFIG_GRUB_CONSOLE is not set
 CONFIG_GRUB_IMAGES=y
 CONFIG_KERNEL_CFQ_GROUP_IOSCHED=y
@@ -181,7 +180,6 @@ CONFIG_PACKAGE_luci-app-control-weburl=y
 # CONFIG_PACKAGE_luci-app-ddns is not set
 CONFIG_PACKAGE_luci-app-ddns-go=y
 CONFIG_PACKAGE_luci-app-diskman=y
-CONFIG_PACKAGE_luci-app-dockerman=y
 CONFIG_PACKAGE_luci-app-lucky=y
 CONFIG_PACKAGE_luci-app-mosdns=y
 CONFIG_PACKAGE_luci-app-mwan3=y
