@@ -18,7 +18,7 @@ env:
   RUN_NUMBER: ${{github.run_number}}
   RUN_WORKFLOW: ${{github.workflow}}
   REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
-  # PUSH_PLUS_TOKEN: ${{ secrets.PUSH_PLUS_TOKEN }}
+  PUSH_PLUS_TOKEN: ${{ secrets.PUSH_PLUS_TOKEN }}
   # TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
   # TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
   TZ: Asia/Shanghai
@@ -189,18 +189,18 @@ jobs:
         name: OpenWrt_x64_merthen301-${{ env.Firmware_Date }}
         path: ${{ env.FIRMWARE_PATH }}
     
-    #- name: 发布固件
-      #if: steps.compile.outcome == 'success' && env.UPLOAD_RELEASE == 'true' && env.ING_FIRMWAR == 'true' && env.REPO_TOKEN
-      #uses: ncipollo/release-action@v1
-      #with:
+    - name: 发布固件
+      if: steps.compile.outcome == 'success' && env.UPLOAD_RELEASE == 'true' && env.ING_FIRMWAR == 'true' && env.REPO_TOKEN
+      uses: ncipollo/release-action@v1
+      with:
         #name: ${{ env.SOURCE }}-${{ env.PROMPT_TING }}
-        #name: OpenWrt_x64_merthen301-${{ env.Firmware_Date }}
-        #tag: a${{ env.date }}
-        #token: ${{ secrets.REPO_TOKEN }}
-        #allowUpdates: true
+        name: OpenWrt_x64_merthen301-${{ env.Firmware_Date }}
+        tag: a${{ env.date }}
+        token: ${{ secrets.REPO_TOKEN }}
+        allowUpdates: true
         #body: ${{ env.Tongzhi_Date }}
-        #body: 编译完成时间：${{ env.Tongzhi_Date }}
-        #artifacts: "${{ env.FIRMWARE_PATH }}/*"
+        body: 编译完成时间：${{ env.Tongzhi_Date }}
+        artifacts: "${{ env.FIRMWARE_PATH }}/*"
         
     #- name: 发送[在线更新固件]至云端1
       #id: autoup
